@@ -1,6 +1,16 @@
-<p>
-  <%= @track.category %>
-</p>
+<div class="next">
+    <%= link_to 'Next', id="2" %>
+</div>
+
+  <h1><p><%= @track.category %></p></h1>
+
 <p>
   <%= @track.description %>
 </p>
+
+<style>
+  .next{
+    margin-right: 100px;
+    float: right;
+  }
+</style>

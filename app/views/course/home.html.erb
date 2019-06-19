@@ -1,1 +1,12 @@
 <h1>hello</h1>
+
+<div class="logout">
+  <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+</div>
+
+<style>
+  .logout{
+    margin-right: 100px;
+    float: right;
+  }
+</style>
