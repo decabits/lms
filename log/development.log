@@ -2055,3 +2055,52 @@ Processing by TracksController#show as HTML
 Completed 200 OK in 175ms (Views: 156.6ms | ActiveRecord: 3.0ms)
 
 
+Started GET "/tracks/1" for ::1 at 2019-06-19 17:59:52 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrack Load (1.4ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:3
+  Rendering tracks/show.html.erb within layouts/application
+  Rendered tracks/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 631ms (Views: 499.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/tracks/1" for ::1 at 2019-06-19 18:02:17 +0530
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrack Load (1.2ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:3
+  [1m[36mCACHE Track Load (0.0ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:4
+  [1m[36mTrackItem Load (0.5ms)[0m  [1m[34mSELECT "track_items".* FROM "track_items" WHERE "track_items"."track_id" = ?[0m  [["track_id", 1]]
+  ↳ app/controllers/tracks_controller.rb:4
+  Rendering tracks/show.html.erb within layouts/application
+  Rendered tracks/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 211ms (Views: 28.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/tracks/1" for ::1 at 2019-06-19 18:03:01 +0530
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrack Load (0.1ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:3
+  [1m[36mCACHE Track Load (0.0ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:4
+  [1m[36mTrackItem Load (0.1ms)[0m  [1m[34mSELECT "track_items".* FROM "track_items" WHERE "track_items"."track_id" = ?[0m  [["track_id", 1]]
+  ↳ app/controllers/tracks_controller.rb:4
+  Rendering tracks/show.html.erb within layouts/application
+  Rendered tracks/show.html.erb within layouts/application (59.5ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `item' for #<Track:0x00007f8455de4910>):
+    5:   <%= @track.description %>
+    6: </p>
+    7: <p>
+    8:   <%= @track.item %>
+    9: </p>
+  
+app/views/tracks/show.html.erb:8:in `_app_views_tracks_show_html_erb___588394516732007155_70103176560160'
