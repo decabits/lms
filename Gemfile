@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.7'
 
+# Adding cancancan for admin and user access
+gem 'cancancan', '~> 3.0.1'
 # Adding Authentication with Devise
 gem 'devise', '~> 4.6.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
