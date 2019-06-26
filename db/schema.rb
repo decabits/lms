@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_120454) do
+ActiveRecord::Schema.define(version: 2019_06_26_222445) do
 
   create_table "track_items", force: :cascade do |t|
     t.integer "track_id"
     t.string "item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "material_type"
     t.index ["track_id"], name: "index_track_items_on_track_id"
   end
 
