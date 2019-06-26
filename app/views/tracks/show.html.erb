@@ -6,8 +6,10 @@
 
 <p>
   <%= @track.description %>
-  <%= @track.track_items.first.item %>
 </p>
+<li>
+  <ol><%= @track.track_items.first.item %></ol>
+</li>
 
 <style>
   .next{
