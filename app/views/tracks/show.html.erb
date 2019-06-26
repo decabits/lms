@@ -7,11 +7,13 @@
 <p>
   <%= @track.description %>
 </p>
-<li>
-  <ol><%= @track.track_items.first.item %></ol>
-</li>
+<ol>
+  <% @track.track_items.each do |track_item| %>
+    <li><%= link_to track_item.item %></li>
+  <% end %>
+</ol>
 
-<style>
+<style scoped>
   .next{
     margin-right: 100px;
     float: right;
