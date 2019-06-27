@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
 
+  get 'assignment', to: 'assignments#show'
+
 end
