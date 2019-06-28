@@ -1,0 +1,10 @@
+<section>
+  <div>
+    <h2><%= @assignment.comments.count %>Comments</h2>
+    <%= render @assignment.comments %><br/>
+    <div>
+      <h3>Leave a reply</h3>
+      <%= render 'comments' %>
+    </div>
+  </div>
+</section>
