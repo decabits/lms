@@ -3,7 +3,7 @@
     <%= link_to 'Home', root_path %>
 </div>
 
-  <h1><p><%= @track.category %></p></h1>
+  <h1><p><%= @track.name %></p></h1>
 
 <p>
   <%= @track.description %>
@@ -12,8 +12,10 @@
   <% @track.track_items.each do |track_item| %>
     <li><%= link_to track_item.item %></li>
   <% end %>
+  <% @track.assignments.each do |assignment| %>
+    <li><%= assignment.description %></li>
+  <% end %>
 </ol>
-
 <style scoped>
   .next{
     margin-right: 100px;

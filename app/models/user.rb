@@ -5,4 +5,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   ROLES = %i[admin assignee mentor]
+  has_and_belongs_to_many :tracks
 end

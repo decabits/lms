@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_203922) do
+ActiveRecord::Schema.define(version: 2019_07_19_171557) do
 
   create_table "assignments", force: :cascade do |t|
-    t.integer "track_item_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["track_item_id"], name: "index_assignments_on_track_item_id"
+    t.string "track_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -38,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_203922) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.string "category"
+    t.string "name"
     t.text "description"
   end
 
@@ -54,6 +53,15 @@ ActiveRecord::Schema.define(version: 2019_06_27_203922) do
     t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_tracks", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "track_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["track_id"], name: "index_users_tracks_on_track_id"
+    t.index ["user_id"], name: "index_users_tracks_on_user_id"
   end
 
 end
