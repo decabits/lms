@@ -6,8 +6,4 @@ class CourseController < ApplicationController
 
   end
 
-  def tracks
-    
-  end
-  
 end
