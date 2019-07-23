@@ -1,19 +1,12 @@
 <div class="next">
-    <%= link_to 'Next', id="2" %>
     <%= link_to 'Home', root_path %>
 </div>
 
   <h1><p><%= @track.name %></p></h1>
 
-<p>
-  <%= @track.description %>
-</p>
 <ol>
   <% @track.track_items.each do |track_item| %>
     <li><%= link_to track_item.item %></li>
-  <% end %>
-  <% @track.assignments.each do |assignment| %>
-    <li><%= assignment.description %></li>
   <% end %>
 </ol>
 <style scoped>
