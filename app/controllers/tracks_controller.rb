@@ -14,11 +14,28 @@ class TracksController < ApplicationController
     @track = Track.new
   end
 
+  def edit
+    @track = Track.find(params[:id])
+  end
+
   def create 
-    # render plain: params[:track].inspect
     @track = Track.new(track_params)
-    @track.save
-    redirect_to tracks_path(@track)
+    if @track.save
+      flash[:notice] = "Track was successfully created"
+      redirect_to tracks_path(@track)
+    else
+      render "new"
+    end
+  end
+
+  def update
+    @track = Track.find(params[:id])
+    if @track.update(track_params)
+      flash[:notice]
+      redirect_to tracks_path(@track)
+    else
+      render "edit"
+    end
   end
 
   private

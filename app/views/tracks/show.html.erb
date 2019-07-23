@@ -1,5 +1,6 @@
 <div class="next">
-    <%= link_to 'Home', root_path %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Tracks', tracks_path %>
 </div>
 
   <h1><p><%= @track.name %></p></h1>
@@ -9,6 +10,7 @@
     <li><%= link_to track_item.item %></li>
   <% end %>
 </ol>
+
 <style scoped>
   .next{
     margin-right: 100px;

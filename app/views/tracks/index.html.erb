@@ -1,17 +1,22 @@
 <h1>Hello <%= current_user.email %></h1>
 
+<p>
+  <%= link_to 'Create a new Track', new_track_path %>
+</p>
+
 <div class="logout">
   <%= link_to 'logout', destroy_user_session_path(@user), method: :delete %>
 </div>
 
 <h2>Tracks:</h2>
-<div>
-  <ol>
-    <% @track.each do |track| %>
-      <li><%= link_to track.name, track_path(track) %></li>
-    <% end %>
-  </ol>
-</div>
+<table>
+  <% @track.each do |track| %>
+    <tr>
+      <td><%= link_to track.name, track_path(track) %></td>
+      <td><%= link_to 'Edit', edit_track_path(track) %></td>
+    </tr>
+  <% end %>
+</table>
 
 
 <style scoped>
