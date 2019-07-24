@@ -1,4 +1,15 @@
 <h1>Track Itemssssss</h1>
-	<%= @items.each do |item| %>
-		<p><%= item.topic %></p>
-	<% end %> 
+
+<%= link_to 'Add a new Topic', new_track_item_path(@items) %>
+
+
+<table>
+  <% @items.each do |item| %>
+	<tr>
+	  <td><%= item.topic %></td>
+	  <td><%= link_to 'Edit', edit_track_item_path(@items) %></td>
+	  <td><%= link_to 'Delete', track_item_path(item), method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+

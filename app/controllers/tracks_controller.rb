@@ -1,10 +1,10 @@
 class TracksController < ApplicationController
 	def index
-      @tracks = Track.all
+    @tracks = Track.all
 	end
 	def show
-      @track = Track.find(params[:id])
-      @items = @track.track_items
+    @track = Track.find(params[:id])
+    @items = @track.track_items
   end
   def destroy
     @track = Track.find(params[:id])

@@ -1,3 +1,6 @@
 class TrackItem < ApplicationRecord
-	belongs_to :track
+  validates :topic, presence: true
+  validates :item_type, presence: true
+
+  belongs_to :track
 end
