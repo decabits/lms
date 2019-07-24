@@ -10,7 +10,7 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @track.destroy
     flash[:notice] = "Track was successfully deleted" 
-    redirect_to 'tracks_path'
+    redirect_to tracks_path
   end
 
   def new
