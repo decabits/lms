@@ -1,5 +1,9 @@
 class TracksController < ApplicationController
-	before_action :authenticate_user!
+
+  load_and_authorize_resource
+
+  before_action :authenticate_user!
+  
 	def index
     @tracks = Track.all
 	end
@@ -16,6 +20,7 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    authorize! :new, @track
   end
 
   def edit
