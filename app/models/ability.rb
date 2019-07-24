@@ -9,7 +9,7 @@ class Ability
       if user.admin?  # additional permissions for administrators
         can :manage, :all
       elsif user.assignee?
-        can :[:read, :update, :destroy], [Assignment, Comment]
+        can :read, :Track
       elsif user.mentor
         can :manage, :all
     end
