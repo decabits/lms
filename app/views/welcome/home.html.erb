@@ -1,0 +1,18 @@
+<% if current_user %>
+	<div class="home d-flex justify-content-center align-items-center bg-dark">
+	 <h1>Welcome Learner!</h1>
+	</div>
+<% else %>
+	<div class="home d-flex justify-content-center align-items-center bg-dark">
+	 <h1>Decabits LMS</h1>
+	</div>
+<% end %>
+<style>
+	.home{
+		  min-height: 85vh;
+	}
+	h1{
+     color: white;
+      text-align: center;
+	}
+</style>

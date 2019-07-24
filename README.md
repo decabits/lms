@@ -6,6 +6,3 @@ gem install rails
 * Run Server
 rails server
 
-
-
-
