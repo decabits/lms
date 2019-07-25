@@ -9,14 +9,15 @@ class TrackItemsController < ApplicationController
 	end
 
 	def edit
-    @item = TrackItem.find(params[:track_id])
+    @item = TrackItem.find(params[:id])
   end
 
 	def create
-		# render plain: params[:track_item].inspect
-		@item = TrackItem.new(item_params)
-		@item.save
-		redirect_to track_path(@track)
+		render plain: params[:track_item].inspect
+		# @track = Track.find(params[:id])
+		# @item = TrackItem.new(item_params)
+		# @item.save
+		# redirect_to track_items_path
     # if @item.save
     #   flash[:notice] = "Topic was successfully created"
     #   redirect_to track_path(track)
@@ -27,7 +28,7 @@ class TrackItemsController < ApplicationController
 
 	private
   def item_params
-    params.require(:track_item).permit(:topic, :item_type)
+    params.require(:track_item).permit(:topic, :item_type, :track_id)
   end
 
 end
