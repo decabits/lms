@@ -1,5 +1,7 @@
 class TrackItemsController < ApplicationController
+
 	before_action :authenticate_user!
+
 	def index
 		@items = TrackItem.all
 	end
@@ -8,23 +10,36 @@ class TrackItemsController < ApplicationController
 		@item = TrackItem.new
 	end
 
+	def destroy
+		@item = TrackItem.find(params[:id])
+    @item.destroy
+    flash[:notice] = "Topic was successfully deleted" 
+    redirect_to tracks_path
+	end
+
 	def edit
-    @item = TrackItem.find(params[:id])
+		@item = TrackItem.find(params[:id])
   end
 
 	def create
-		render plain: params[:track_item].inspect
-		# @track = Track.find(params[:id])
-		# @item = TrackItem.new(item_params)
-		# @item.save
-		# redirect_to track_items_path
-    # if @item.save
-    #   flash[:notice] = "Topic was successfully created"
-    #   redirect_to track_path(track)
-    # else
-    #   render "new"
-    # end
+		@item = TrackItem.new(item_params)
+    if @item.save
+      flash[:notice] = "Topic was successfully created"
+      redirect_to tracks_path
+    else
+      render "new"
+    end
 	end
+
+	def update
+    @item = TrackItem.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "Topic has been updated"
+      redirect_to tracks_path(@track)
+    else
+      render "edit"
+    end
+  end
 
 	private
   def item_params
