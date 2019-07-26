@@ -5,6 +5,11 @@ class TrackItemsController < ApplicationController
 	def index
 		@items = TrackItem.all
 	end
+
+  def show
+    @item = TrackItem.find(params[:id])
+
+  end
 	
 	def new
 		@item = TrackItem.new

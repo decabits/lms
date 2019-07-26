@@ -1,4 +1,4 @@
-<h1>Track Itemssssss</h1>
+<h1>Track Itemsss</h1>
 
 <p>
   <% if can? :create, Track %>
@@ -9,7 +9,7 @@
 <table>
   <% @items.each do |item| %>
 	<tr>
-	  <td><%= item.topic %></td>
+	  <td><%= link_to item.topic, track_item_path(item) %></td>
 	  <td><%= link_to 'Edit', edit_track_item_path(item) if can? :update, Track %></td>
 	  <td><%= link_to 'Delete', track_item_path(item), method: :delete, data: {confirm: "Are you sure?"} if can? :destroy, Track %></td>
     </tr>

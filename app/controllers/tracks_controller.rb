@@ -7,10 +7,12 @@ class TracksController < ApplicationController
 	def index
     @tracks = Track.all
 	end
+
 	def show
     @track = Track.find(params[:id])
     @items = @track.track_items
   end
+
   def destroy
     @track = Track.find(params[:id])
     @track.destroy
@@ -31,7 +33,7 @@ class TracksController < ApplicationController
     @track = Track.new(track_params)
     if @track.save
       flash[:notice] = "Track was successfully created"
-      redirect_to tracks_path(@track)
+      redirect_to tracks_path
     else
       render "new"
     end
