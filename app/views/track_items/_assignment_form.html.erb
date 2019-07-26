@@ -2,7 +2,7 @@
 <div class='col-lg-10'>
 <%= form_for(@item, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 <div class="form-group">
-<p><strong>Description :</strong></p>
+<p><strong>Solution :</strong></p>
 <div class="col-m-12">
 <%= f.text_area :topic, rows: 10, class: "form-control", placeholder: "Body of article" %>
 </div>
@@ -14,7 +14,7 @@
 </div>
 <% end %>
 <div class="col-m-10">
-[ <%= link_to "Cancel request and return to articles listing", tracks_path %> ]
+[ <%= link_to "Cancel request and return to Tracks listing", tracks_path %> ]
 </div>
 </div>
 </div>
