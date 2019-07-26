@@ -1,0 +1,47 @@
+<% if @track.errors.any? %>
+  <h2>The following errors occured</h2>
+  <ul>
+    <% @track.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class='mt-5 row justify-content-center'>
+  <div class='col-lg-6'>
+<%= form_for @track do |f| %>
+
+<div class="form-group">
+<div class="control-label col-m-4">
+    <%= f.label :name %><br/>
+    </div>
+    <div class="col-m-4">
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="form-group">
+<div class="control-label col-m-4">
+    <%= f.label :description  %><br/>
+    </div>
+    <div class="col-m-4">
+    <%= f.text_area :description,rows: 5, class: "form-control", placeholder: "description " %>
+ </div>
+
+</div>
+ 
+<div class="row justify-content-center">
+
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+
+
+<% end %>
+
+<div class="row justify-content-center">
+
+[ <%= link_to "Cancel request and return to tracks listing", tracks_path %> ]
+
+</div>
+</div>
+</div>
