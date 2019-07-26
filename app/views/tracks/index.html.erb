@@ -1,17 +1,17 @@
 <h1 align ="center">Tracks</h1>
 
-<p>
+<div class="row justify-content-center my-4">
   <% if can? :create, Track %>
-    <%= link_to 'Create a new Track', new_track_path %>
+  <%= link_to 'Create a new Track', new_track_path , class: "btn btn-outline-info  " %>
   <% end %>
-</p>
-
-<table>
+</div>
+<div class="row" >
   <% @tracks.each do |track| %>
-    <tr>
-      <td><%= link_to track.name, track_path(track) %></td>
-      <td><%= link_to 'Edit', edit_track_path(track) if can? :update, track %></td>
-      <td><%= link_to 'Delete', track_path(track), method: :delete, data: {confirm: "Are you sure?"} if can? :destroy, track %></td>
-    </tr>
+  <div class="container jumbotron mb-3">
+    <%= link_to track.name, track_path(track), class: "font-italic h4" %>
+    <p class ="font-italic h5"><%=track.description%></p>
+    <%= link_to 'Edit', edit_track_path(track),class: "btn btn-sm btn-outline-primary" if can? :update, track %>
+    <%= link_to 'Delete', track_path(track), method: :delete,class: "btn btn-sm btn-outline-danger", data: {confirm: "Are you sure?"} if can? :destroy, track %>
+  </div>
   <% end %>
-</table>
+</div>
