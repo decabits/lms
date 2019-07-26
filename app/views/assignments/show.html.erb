@@ -1,0 +1,7 @@
+<h2 align="center"><%= @item.topic %></h2>
+
+<%  if @item.item_type == "assignment" %>
+<%= render 'assignment_form' %> 
+<% else %>
+<%=  	link_to 'go to tutorial', @item.source  %>
+<% end %>

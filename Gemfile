@@ -60,4 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb', '~> 0.7.3'
 
+gem 'cancancan', '~> 3.0', '>= 3.0.1'
+
 gem 'devise'

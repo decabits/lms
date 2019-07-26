@@ -1,4 +1,17 @@
-<h1>Track Itemssssss</h1>
-	<%= @items.each do |item| %>
-		<p><%= item.topic %></p>
-	<% end %> 
+<h1>Track Itemsss</h1>
+
+<p>
+  <% if can? :create, Track %>
+		<%= link_to 'Add a new Topic', new_track_item_path %>
+	<% end %>
+</p>
+
+<table>
+  <% @items.each do |item| %>
+	<tr>
+	  <td><%= link_to item.topic, assignment_path(item) %></td>
+	  <td><%= link_to 'Edit', edit_track_item_path(item) if can? :update, Track %></td>
+	  <td><%= link_to 'Delete', track_item_path(item), method: :delete, data: {confirm: "Are you sure?"} if can? :destroy, Track %></td>
+    </tr>
+  <% end %>
+</table>
