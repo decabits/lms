@@ -8,8 +8,8 @@
 <div class="row" >
   <% @tracks.each do |track| %>
   <div class="container jumbotron mb-3">
-    <%= link_to track.name, track_path(track), class: "font-italic h4" %>
-    <p class ="font-italic h5"><%=track.description%></p>
+    <%= link_to track.name, track_path(track), class: "font-italic h4 my-2" %>
+    <p class ="font-italic h5 my-2"><%=track.description%></p>
     <%= link_to 'Edit', edit_track_path(track),class: "btn btn-sm btn-outline-primary" if can? :update, track %>
     <%= link_to 'Delete', track_path(track), method: :delete,class: "btn btn-sm btn-outline-danger", data: {confirm: "Are you sure?"} if can? :destroy, track %>
   </div>
